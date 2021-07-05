@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		575B9DE62692829400684224 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DE52692829400684224 /* ProfileViewController.swift */; };
 		578B18F926921421005861C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18F826921421005861C1 /* AppDelegate.swift */; };
 		578B18FB26921421005861C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18FA26921421005861C1 /* SceneDelegate.swift */; };
 		578B18FD26921421005861C1 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18FC26921421005861C1 /* TriviaViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		575B9DE52692829400684224 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		578B18F526921421005861C1 /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578B18F826921421005861C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578B18FA26921421005861C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				578B18FC26921421005861C1 /* TriviaViewController.swift */,
+				575B9DE52692829400684224 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575B9DE62692829400684224 /* ProfileViewController.swift in Sources */,
 				578B190E269217A5005861C1 /* UIViewController+Extensions.swift in Sources */,
 				578B191026921F65005861C1 /* TriviaAnswerCell.swift in Sources */,
 				578B18FD26921421005861C1 /* TriviaViewController.swift in Sources */,

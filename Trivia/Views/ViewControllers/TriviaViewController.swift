@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TriviaViewController: UIViewController {
+final class TriviaViewController: UIViewController {
     
     private let layout: UICollectionViewFlowLayout = {
         let flow = UICollectionViewFlowLayout()
@@ -96,7 +96,8 @@ class TriviaViewController: UIViewController {
     }
     
     @objc func profileButtonTapped() {
-        //TODO: Present profile vc
+        let viewController = ProfileViewController()
+        present(viewController, animated: true)
     }
 
 }
