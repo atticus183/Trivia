@@ -5,9 +5,16 @@
 //  Created by Josh R on 7/4/21.
 //
 
+import Combine
 import UIKit
 
 final class TriviaViewController: UIViewController {
+    
+    private let viewModel: TriviaViewModel
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
+    // MARK: UI Components
     
     private let layout: UICollectionViewFlowLayout = {
         let flow = UICollectionViewFlowLayout()
@@ -59,7 +66,20 @@ final class TriviaViewController: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-
+    
+    // MARK: Initialization
+    
+    init(viewModel: TriviaViewModel = TriviaViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: View Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
@@ -93,24 +113,53 @@ final class TriviaViewController: UIViewController {
         ])
         
         collectionView.reloadData()
+        
+        bindViewModelValues()
     }
+    
+    // MARK: Methods
     
     @objc func profileButtonTapped() {
         let viewController = ProfileViewController()
         present(viewController, animated: true)
     }
+    
+    private func bindViewModelValues() {
+        viewModel.$triviaItem.sink { [weak self] triviaItem in
+            self?.questionLabel.text = triviaItem?.question ?? ""
+            self?.collectionView.reloadData()
+        }.store(in: &cancellables)
+    }
 
 }
 
+// MARK: Live Preview
+
 extension TriviaViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return viewModel.triviaItem?.allPossibleAnswers.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TriviaAnswerCell.identifier, for: indexPath) as! TriviaAnswerCell
-        cell.answerLabel.text = "Answer \(indexPath.row)"
+        let possibleAnswer  = viewModel.triviaItem?.allPossibleAnswers[indexPath.row] ?? ""
+        cell.answer = possibleAnswer
+        cell.question = viewModel.triviaItem
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! TriviaAnswerCell
+        cell.updateSelectedAnswer()
+        
+        //Updates cell regardless if user got the correct answer.
+        if let cell = collectionView.cellForItem(at: IndexPath(row: viewModel.triviaItem?.indexOfCorrectAnswer ?? 0, section: 0)) as? TriviaAnswerCell {
+            cell.updateCellWithCorrectAnswer()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.viewModel.fetchNewQuestion()
+        }
     }
 }
 

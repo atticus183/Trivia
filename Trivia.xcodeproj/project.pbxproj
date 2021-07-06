@@ -3,11 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		575B9DE62692829400684224 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DE52692829400684224 /* ProfileViewController.swift */; };
+		575B9DE92692871100684224 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 575B9DE82692871100684224 /* Alamofire */; };
+		575B9DEF2692885D00684224 /* TriviaNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DEE2692885D00684224 /* TriviaNetworkManager.swift */; };
+		575B9DF2269288DA00684224 /* TriviaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DF1269288DA00684224 /* TriviaItem.swift */; };
+		575B9DF52692895600684224 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 575B9DF42692895600684224 /* SwiftyJSON */; };
+		575B9DF726928C5700684224 /* TriviaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DF626928C5700684224 /* TriviaViewModel.swift */; };
+		575B9DF92692D19600684224 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DF82692D19600684224 /* String+Extensions.swift */; };
 		578B18F926921421005861C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18F826921421005861C1 /* AppDelegate.swift */; };
 		578B18FB26921421005861C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18FA26921421005861C1 /* SceneDelegate.swift */; };
 		578B18FD26921421005861C1 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18FC26921421005861C1 /* TriviaViewController.swift */; };
@@ -19,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		575B9DE52692829400684224 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		575B9DEE2692885D00684224 /* TriviaNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaNetworkManager.swift; sourceTree = "<group>"; };
+		575B9DF1269288DA00684224 /* TriviaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaItem.swift; sourceTree = "<group>"; };
+		575B9DF626928C5700684224 /* TriviaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaViewModel.swift; sourceTree = "<group>"; };
+		575B9DF82692D19600684224 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		578B18F526921421005861C1 /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578B18F826921421005861C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578B18FA26921421005861C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,12 +45,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575B9DF52692895600684224 /* SwiftyJSON in Frameworks */,
+				575B9DE92692871100684224 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		575B9DEA2692871900684224 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				575B9DEE2692885D00684224 /* TriviaNetworkManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		575B9DF0269288D000684224 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				575B9DF1269288DA00684224 /* TriviaItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		578B18EC26921421005861C1 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +88,8 @@
 		578B18F726921421005861C1 /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
+				575B9DF0269288D000684224 /* Models */,
+				575B9DEA2692871900684224 /* Networking */,
 				578B18F826921421005861C1 /* AppDelegate.swift */,
 				578B190126921422005861C1 /* Assets.xcassets */,
 				578B190C2692178A005861C1 /* Extensions */,
@@ -75,6 +105,7 @@
 		578B190C2692178A005861C1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				575B9DF82692D19600684224 /* String+Extensions.swift */,
 				578B190D269217A5005861C1 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
@@ -92,6 +123,7 @@
 		578B191226923DF8005861C1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				575B9DF626928C5700684224 /* TriviaViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -129,6 +161,10 @@
 			dependencies = (
 			);
 			name = Trivia;
+			packageProductDependencies = (
+				575B9DE82692871100684224 /* Alamofire */,
+				575B9DF42692895600684224 /* SwiftyJSON */,
+			);
 			productName = Trivia;
 			productReference = 578B18F526921421005861C1 /* Trivia.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +192,10 @@
 				Base,
 			);
 			mainGroup = 578B18EC26921421005861C1;
+			packageReferences = (
+				575B9DE72692871100684224 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				575B9DF32692895600684224 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 578B18F626921421005861C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,10 +222,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575B9DF92692D19600684224 /* String+Extensions.swift in Sources */,
 				575B9DE62692829400684224 /* ProfileViewController.swift in Sources */,
+				575B9DF2269288DA00684224 /* TriviaItem.swift in Sources */,
 				578B190E269217A5005861C1 /* UIViewController+Extensions.swift in Sources */,
 				578B191026921F65005861C1 /* TriviaAnswerCell.swift in Sources */,
+				575B9DEF2692885D00684224 /* TriviaNetworkManager.swift in Sources */,
 				578B18FD26921421005861C1 /* TriviaViewController.swift in Sources */,
+				575B9DF726928C5700684224 /* TriviaViewModel.swift in Sources */,
 				578B18F926921421005861C1 /* AppDelegate.swift in Sources */,
 				578B18FB26921421005861C1 /* SceneDelegate.swift in Sources */,
 			);
@@ -381,6 +425,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		575B9DE72692871100684224 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+		575B9DF32692895600684224 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		575B9DE82692871100684224 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575B9DE72692871100684224 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		575B9DF42692895600684224 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575B9DF32692895600684224 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 578B18ED26921421005861C1 /* Project object */;
 }

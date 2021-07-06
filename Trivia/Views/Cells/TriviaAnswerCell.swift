@@ -9,9 +9,17 @@ import UIKit
 
 class TriviaAnswerCell: UICollectionViewCell {
     
+    var answer: String? {
+        didSet { answerLabel.text = answer }
+    }
+    
+    var question: TriviaItem?
+    
     static var identifier: String {
         String(describing: Self.self)
     }
+    
+    // MARK: UI Components
     
     let answerLabel: UILabel = {
        let label = UILabel()
@@ -26,10 +34,11 @@ class TriviaAnswerCell: UICollectionViewCell {
     let resultImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .systemGreen
-        imageView.image = UIImage(systemName: "checkmark.circle")   //RIGHT: checkmark.circle, WRONG: multiply.circle
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    // MARK: Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,6 +66,29 @@ class TriviaAnswerCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Methods
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        resultImageView.image = nil
+        contentView.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    func updateSelectedAnswer() {
+        let isCorrectAnswer = question?.correctAnswer == answer
+        let image = isCorrectAnswer ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "multiply.circle")
+        let color = isCorrectAnswer ? UIColor.systemGreen : UIColor.systemRed
+        
+        resultImageView.image = image
+        resultImageView.tintColor = color
+        contentView.layer.borderColor = color.cgColor
+    }
+    
+    func updateCellWithCorrectAnswer() {
+        resultImageView.image = UIImage(systemName: "checkmark.circle")
+        resultImageView.tintColor = .systemGreen
     }
     
 }
