@@ -129,6 +129,10 @@ final class TriviaViewController: UIViewController {
             self?.questionLabel.text = triviaItem?.question ?? ""
             self?.collectionView.reloadData()
         }.store(in: &cancellables)
+        
+        viewModel.$totalPointsEarned.sink { [weak self] points in
+            self?.scoreLabel.text = String(points ?? 0)
+        }.store(in: &cancellables)
     }
 
 }
@@ -151,6 +155,9 @@ extension TriviaViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! TriviaAnswerCell
         cell.updateSelectedAnswer()
+        
+        let selectedAnswer = viewModel.triviaItem!.allPossibleAnswers[indexPath.row]
+        viewModel.selected(answer: selectedAnswer)
         
         //Updates cell regardless if user got the correct answer.
         if let cell = collectionView.cellForItem(at: IndexPath(row: viewModel.triviaItem?.indexOfCorrectAnswer ?? 0, section: 0)) as? TriviaAnswerCell {

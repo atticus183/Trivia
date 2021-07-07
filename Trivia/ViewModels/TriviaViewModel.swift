@@ -6,16 +6,43 @@
 //
 
 import Combine
+import RealmSwift
 import SwiftyJSON
 
 class TriviaViewModel: ObservableObject {
     @Published var triviaItem: TriviaItem?
+    @Published var totalPointsEarned: Int?
+    
+    private var realm: Realm?
+    private var realmNotification: NotificationToken?
+    
+    private var user: Results<User>?
     
     private let triviaNetworkManager: TriviaNetworkManager
     
-    init(triviaNetworkManager: TriviaNetworkManager = TriviaNetworkManager()) {
+    init(realm: Realm? = RealmManager.shared.realm,
+         triviaNetworkManager: TriviaNetworkManager = TriviaNetworkManager()
+    ) {
+        self.realm = realm
         self.triviaNetworkManager = triviaNetworkManager
         fetchNewQuestion()
+        
+        user = realm?.objects(User.self)
+        
+        realmNotification = user?.observe { [weak self] changes in
+            switch changes {
+            case .initial:
+                self?.totalPointsEarned = self?.user?.first?.pointsEarned ?? 0
+            case .update:
+                self?.totalPointsEarned = self?.user?.first?.pointsEarned ?? 0
+            case .error(let error):
+                print("Error observing user: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    deinit {
+        realmNotification?.invalidate()
     }
     
     func fetchNewQuestion() {
@@ -42,5 +69,27 @@ class TriviaViewModel: ObservableObject {
                                            incorrectAnswers: incorrectAnswers)
         retrievedQuestion.combineAllAnswers()
         return retrievedQuestion
+    }
+    
+    func selected(answer: String) {
+        guard let realm = realm, let triviaItem = triviaItem else { return }
+        let didChoseCorrectAnswer = answer == triviaItem.correctAnswer
+        
+        do {
+            try realm.write {
+                let user = User.getUser(in: realm)
+                if didChoseCorrectAnswer {
+                    user.numberOfCorrectAnswers += 1
+                    user.pointsEarned += triviaItem.points
+                } else {
+                    user.numberOfCorrectAnswers -= 1
+                    user.pointsEarned -= triviaItem.points
+                }
+                user.numberOfQuestionsAsked += 1
+                user.pointsPossible += triviaItem.points
+            }
+        } catch {
+            print("Relam write error: \(error.localizedDescription)")
+        }
     }
 }
