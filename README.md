@@ -1,7 +1,7 @@
 # Trivia
 A trivia game app built with MVVM leveraging Alamofire, SwiftyJSON, Combine, Unit Testing, and Realm. 
 
-TODO: Add screenshot here
+![Trivia Portfolio x3 small](https://user-images.githubusercontent.com/25728996/125000673-862e0f80-e016-11eb-90d9-b539b8327ea4.png)
 
 ## Details
 - 100% programmatic, no storyboards
