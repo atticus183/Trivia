@@ -5,13 +5,17 @@
 //  Created by Josh R on 7/4/21.
 //
 
+import Combine
 import UIKit
 
 final class ProfileViewController: UIViewController {
+    let viewModel: ProfileViewModel
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
     //questions answered correctly
-    let totalCorrectAnswers: UILabel = {
+    let totalCorrectAnswersLabel: UILabel = {
         let label = UILabel()
-        label.text = "# of correct answers: 123"
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +24,6 @@ final class ProfileViewController: UIViewController {
     
     let totalQuestionsAskedLabel: UILabel = {
         let label = UILabel()
-        label.text = "Total questions asked: 1234"
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +33,6 @@ final class ProfileViewController: UIViewController {
     //Win %
     let winPercentageLabel: UILabel = {
         let label = UILabel()
-        label.text = "Win percentage: 80%"
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,13 +57,24 @@ final class ProfileViewController: UIViewController {
         return sv
     }()
     
+    // MARK: Initialization
+    
+    init(viewModel: ProfileViewModel = ProfileViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         
         stackView.addArrangedSubview(winPercentageLabel)
-        stackView.addArrangedSubview(totalCorrectAnswers)
+        stackView.addArrangedSubview(totalCorrectAnswersLabel)
         stackView.addArrangedSubview(totalQuestionsAskedLabel)
         
         view.addSubview(titleLabel)
@@ -74,6 +87,22 @@ final class ProfileViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
         ])
+        
+        bindViewModelValues()
+    }
+    
+    private func bindViewModelValues() {
+        viewModel.$winPercentage.sink { [weak self] wintPerct in
+            self?.winPercentageLabel.text = "Win percentage: \(wintPerct ?? "0.0%")"
+        }.store(in: &cancellables)
+        
+        viewModel.$numberOfCorrectAnswers.sink { [weak self] correctAnswers in
+            self?.totalCorrectAnswersLabel.text = "Correct Answers: \(correctAnswers ?? 0)"
+        }.store(in: &cancellables)
+        
+        viewModel.$numberOfQuestionsAsked.sink { [weak self] totalQuestions in
+            self?.totalQuestionsAskedLabel.text = "Total questions asked: \(totalQuestions ?? 0)"
+        }.store(in: &cancellables)
     }
 }
 

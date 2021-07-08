@@ -82,7 +82,6 @@ class TriviaViewModel: ObservableObject {
                     user.numberOfCorrectAnswers += 1
                     user.pointsEarned += triviaItem.points
                 } else {
-                    user.numberOfCorrectAnswers -= 1
                     user.pointsEarned -= triviaItem.points
                 }
                 user.numberOfQuestionsAsked += 1

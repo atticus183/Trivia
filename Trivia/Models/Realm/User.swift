@@ -19,17 +19,12 @@ class User: Object {
 extension User {
     // MARK: Computed Properties
     var winPercentage: String {
-        let winRate = numberOfCorrectAnswers / numberOfQuestionsAsked
+        let winRate: Double = Double(numberOfCorrectAnswers) / Double(numberOfQuestionsAsked)
         let nsNumber = NSNumber(value: winRate)
         return Formatters.percentage.string(from: nsNumber) ?? "0.0%"
     }
     
     // MARK: Methods
-    
-    static func getUser(in realm: Realm) -> User {
-        let retrievedUser = realm.objects(User.self).first!
-        return retrievedUser
-    }
     
     static func createUserOnLaunch(in realm: Realm? = RealmManager.shared.realm) {
         guard let realm = realm else { return }
@@ -45,5 +40,10 @@ extension User {
                 print("Error creating user: \(error.localizedDescription)")
             }
         }
+    }
+    
+    static func getUser(in realm: Realm) -> User {
+        let retrievedUser = realm.objects(User.self).first!
+        return retrievedUser
     }
 }

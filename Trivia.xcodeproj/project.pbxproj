@@ -26,6 +26,7 @@
 		578B190526921422005861C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578B190326921422005861C1 /* LaunchScreen.storyboard */; };
 		578B190E269217A5005861C1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B190D269217A5005861C1 /* UIViewController+Extensions.swift */; };
 		578B191026921F65005861C1 /* TriviaAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B190F26921F65005861C1 /* TriviaAnswerCell.swift */; };
+		57C08C7B2695494F004BA2F0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C08C7A2695494F004BA2F0 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		578B190626921422005861C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		578B190D269217A5005861C1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		578B190F26921F65005861C1 /* TriviaAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaAnswerCell.swift; sourceTree = "<group>"; };
+		57C08C7A2695494F004BA2F0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		578B191226923DF8005861C1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				57C08C7A2695494F004BA2F0 /* ProfileViewModel.swift */,
 				575B9DF626928C5700684224 /* TriviaViewModel.swift */,
 			);
 			path = ViewModels;
@@ -168,8 +171,8 @@
 		578B191326923E00005861C1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				578B18FC26921421005861C1 /* TriviaViewController.swift */,
 				575B9DE52692829400684224 /* ProfileViewController.swift */,
+				578B18FC26921421005861C1 /* TriviaViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				574E088F2693F88A000A4BD0 /* RealmManager.swift in Sources */,
 				575B9DF2269288DA00684224 /* TriviaItem.swift in Sources */,
 				578B190E269217A5005861C1 /* UIViewController+Extensions.swift in Sources */,
+				57C08C7B2695494F004BA2F0 /* ProfileViewModel.swift in Sources */,
 				578B191026921F65005861C1 /* TriviaAnswerCell.swift in Sources */,
 				575B9DEF2692885D00684224 /* TriviaNetworkManager.swift in Sources */,
 				578B18FD26921421005861C1 /* TriviaViewController.swift in Sources */,
