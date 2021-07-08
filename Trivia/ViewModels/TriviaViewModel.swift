@@ -16,15 +16,17 @@ class TriviaViewModel: ObservableObject {
     private var realm: Realm?
     private var realmNotification: NotificationToken?
     
+    private let triviaService: TriviaServiceProtocol
+    
     private var user: Results<User>?
     
-    private let triviaNetworkManager: TriviaNetworkManager
+    //MARK : Initialization
     
     init(realm: Realm? = RealmManager.shared.realm,
-         triviaNetworkManager: TriviaNetworkManager = TriviaNetworkManager()
+         triviaService: TriviaServiceProtocol = TriviaService()
     ) {
         self.realm = realm
-        self.triviaNetworkManager = triviaNetworkManager
+        self.triviaService = triviaService
         fetchNewQuestion()
         
         user = realm?.objects(User.self)
@@ -46,7 +48,7 @@ class TriviaViewModel: ObservableObject {
     }
     
     func fetchNewQuestion() {
-        triviaNetworkManager.getRandomQuestion { [weak self] result in
+        triviaService.getRandomQuestion { [weak self] result in
             switch result {
             case .success(let json):
                 print("\(json)")
@@ -56,6 +58,8 @@ class TriviaViewModel: ObservableObject {
             }
         }
     }
+    
+    //MARK : Methods
     
     func parseTrivia(json: JSON) -> TriviaItem? {
         guard let results = json["results"].array?.first else { return nil }

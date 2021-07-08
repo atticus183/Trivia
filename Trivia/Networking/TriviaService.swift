@@ -10,6 +10,10 @@ import Combine
 import Foundation
 import SwiftyJSON
 
+protocol TriviaServiceProtocol {
+    func getRandomQuestion(completion: @escaping (Result<JSON, Error>) -> Void)
+}
+
 struct Parameters: Encodable {
     var amount: Int
     var category: String?
@@ -17,7 +21,7 @@ struct Parameters: Encodable {
     var type: String?
 }
 
-class TriviaNetworkManager {
+class TriviaService: TriviaServiceProtocol {
     let baseURL = "https://opentdb.com/api.php"
     
     let oneRandomQuestionParameters = Parameters(amount: 1)

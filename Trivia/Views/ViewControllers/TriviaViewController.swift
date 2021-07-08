@@ -33,6 +33,7 @@ final class TriviaViewController: UIViewController {
         let button = UIButton()
         let image = UIImage(systemName: "person")
         button.setBackgroundImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = .white
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
