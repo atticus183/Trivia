@@ -22,7 +22,7 @@ class TriviaViewModel: ObservableObject {
     
     //MARK : Initialization
     
-    init(realm: Realm? = RealmManager.shared.realm,
+    init(realm: Realm? = RealmService.shared.realm,
          triviaService: TriviaServiceProtocol = TriviaService()
     ) {
         self.realm = realm

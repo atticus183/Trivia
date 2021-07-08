@@ -26,7 +26,7 @@ extension User {
     
     // MARK: Methods
     
-    static func createUserOnLaunch(in realm: Realm? = RealmManager.shared.realm) {
+    static func createUserOnLaunch(in realm: Realm? = RealmService.shared.realm) {
         guard let realm = realm else { return }
         let user = realm.objects(User.self).first
         

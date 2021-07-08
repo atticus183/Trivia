@@ -19,7 +19,7 @@ class ProfileViewModel: ObservableObject {
     
     private var users: Results<User>?
     
-    init(realm: Realm? = RealmManager.shared.realm) {
+    init(realm: Realm? = RealmService.shared.realm) {
         self.realm = realm
         
         users = realm?.objects(User.self)

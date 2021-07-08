@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		574E088B2693F810000A4BD0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 574E088A2693F810000A4BD0 /* Realm */; };
 		574E088D2693F810000A4BD0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 574E088C2693F810000A4BD0 /* RealmSwift */; };
-		574E088F2693F88A000A4BD0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E088E2693F88A000A4BD0 /* RealmManager.swift */; };
+		574E088F2693F88A000A4BD0 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E088E2693F88A000A4BD0 /* RealmService.swift */; };
 		574E08932693FB2B000A4BD0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E08922693FB2B000A4BD0 /* User.swift */; };
 		574E08962693FC91000A4BD0 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E08952693FC91000A4BD0 /* Formatters.swift */; };
 		575B9DE62692829400684224 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DE52692829400684224 /* ProfileViewController.swift */; };
@@ -19,6 +19,10 @@
 		575B9DF52692895600684224 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 575B9DF42692895600684224 /* SwiftyJSON */; };
 		575B9DF726928C5700684224 /* TriviaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DF626928C5700684224 /* TriviaViewModel.swift */; };
 		575B9DF92692D19600684224 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575B9DF82692D19600684224 /* String+Extensions.swift */; };
+		57870D2A2696998200F624D2 /* TriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57870D292696998200F624D2 /* TriviaTests.swift */; };
+		57870D32269699AE00F624D2 /* FormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57870D31269699AE00F624D2 /* FormattersTests.swift */; };
+		57870D3426969BB400F624D2 /* TriviaItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57870D3326969BB400F624D2 /* TriviaItemTests.swift */; };
+		57870D3626969E8400F624D2 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57870D3526969E8400F624D2 /* UserTests.swift */; };
 		578B18F926921421005861C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18F826921421005861C1 /* AppDelegate.swift */; };
 		578B18FB26921421005861C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18FA26921421005861C1 /* SceneDelegate.swift */; };
 		578B18FD26921421005861C1 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B18FC26921421005861C1 /* TriviaViewController.swift */; };
@@ -29,8 +33,18 @@
 		57C08C7B2695494F004BA2F0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C08C7A2695494F004BA2F0 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		57870D2C2696998200F624D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 578B18ED26921421005861C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 578B18F426921421005861C1;
+			remoteInfo = Trivia;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		574E088E2693F88A000A4BD0 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		574E088E2693F88A000A4BD0 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		574E08922693FB2B000A4BD0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		574E08952693FC91000A4BD0 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		575B9DE52692829400684224 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +52,12 @@
 		575B9DF1269288DA00684224 /* TriviaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaItem.swift; sourceTree = "<group>"; };
 		575B9DF626928C5700684224 /* TriviaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaViewModel.swift; sourceTree = "<group>"; };
 		575B9DF82692D19600684224 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		57870D272696998200F624D2 /* TriviaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TriviaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		57870D292696998200F624D2 /* TriviaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaTests.swift; sourceTree = "<group>"; };
+		57870D2B2696998200F624D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57870D31269699AE00F624D2 /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
+		57870D3326969BB400F624D2 /* TriviaItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaItemTests.swift; sourceTree = "<group>"; };
+		57870D3526969E8400F624D2 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		578B18F526921421005861C1 /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		578B18F826921421005861C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		578B18FA26921421005861C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +71,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		57870D242696998200F624D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		578B18F226921421005861C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				575B9DF1269288DA00684224 /* TriviaItem.swift */,
+				57870D3326969BB400F624D2 /* TriviaItemTests.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -77,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				574E08922693FB2B000A4BD0 /* User.swift */,
+				57870D3526969E8400F624D2 /* UserTests.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -85,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				574E08952693FC91000A4BD0 /* Formatters.swift */,
+				57870D31269699AE00F624D2 /* FormattersTests.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -106,10 +136,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		57870D282696998200F624D2 /* TriviaTests */ = {
+			isa = PBXGroup;
+			children = (
+				57870D292696998200F624D2 /* TriviaTests.swift */,
+				57870D2B2696998200F624D2 /* Info.plist */,
+			);
+			path = TriviaTests;
+			sourceTree = "<group>";
+		};
 		578B18EC26921421005861C1 = {
 			isa = PBXGroup;
 			children = (
 				578B18F726921421005861C1 /* Trivia */,
+				57870D282696998200F624D2 /* TriviaTests */,
 				578B18F626921421005861C1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				578B18F526921421005861C1 /* Trivia.app */,
+				57870D272696998200F624D2 /* TriviaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,7 +177,7 @@
 				578B18FA26921421005861C1 /* SceneDelegate.swift */,
 				578B191226923DF8005861C1 /* ViewModels */,
 				578B191126923DE1005861C1 /* Views */,
-				574E088E2693F88A000A4BD0 /* RealmManager.swift */,
+				574E088E2693F88A000A4BD0 /* RealmService.swift */,
 			);
 			path = Trivia;
 			sourceTree = "<group>";
@@ -188,6 +229,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		57870D262696998200F624D2 /* TriviaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57870D2E2696998200F624D2 /* Build configuration list for PBXNativeTarget "TriviaTests" */;
+			buildPhases = (
+				57870D232696998200F624D2 /* Sources */,
+				57870D242696998200F624D2 /* Frameworks */,
+				57870D252696998200F624D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57870D2D2696998200F624D2 /* PBXTargetDependency */,
+			);
+			name = TriviaTests;
+			productName = TriviaTests;
+			productReference = 57870D272696998200F624D2 /* TriviaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		578B18F426921421005861C1 /* Trivia */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 578B190926921422005861C1 /* Build configuration list for PBXNativeTarget "Trivia" */;
@@ -220,6 +279,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					57870D262696998200F624D2 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 578B18F426921421005861C1;
+					};
 					578B18F426921421005861C1 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -244,11 +307,19 @@
 			projectRoot = "";
 			targets = (
 				578B18F426921421005861C1 /* Trivia */,
+				57870D262696998200F624D2 /* TriviaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		57870D252696998200F624D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		578B18F326921421005861C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +332,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		57870D232696998200F624D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57870D3626969E8400F624D2 /* UserTests.swift in Sources */,
+				57870D3426969BB400F624D2 /* TriviaItemTests.swift in Sources */,
+				57870D32269699AE00F624D2 /* FormattersTests.swift in Sources */,
+				57870D2A2696998200F624D2 /* TriviaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		578B18F126921421005861C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,7 +350,7 @@
 				575B9DF92692D19600684224 /* String+Extensions.swift in Sources */,
 				574E08962693FC91000A4BD0 /* Formatters.swift in Sources */,
 				575B9DE62692829400684224 /* ProfileViewController.swift in Sources */,
-				574E088F2693F88A000A4BD0 /* RealmManager.swift in Sources */,
+				574E088F2693F88A000A4BD0 /* RealmService.swift in Sources */,
 				575B9DF2269288DA00684224 /* TriviaItem.swift in Sources */,
 				578B190E269217A5005861C1 /* UIViewController+Extensions.swift in Sources */,
 				57C08C7B2695494F004BA2F0 /* ProfileViewModel.swift in Sources */,
@@ -284,6 +366,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		57870D2D2696998200F624D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 578B18F426921421005861C1 /* Trivia */;
+			targetProxy = 57870D2C2696998200F624D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		578B190326921422005861C1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -296,6 +386,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		57870D2F2696998200F624D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C66Y3DM74C;
+				INFOPLIST_FILE = TriviaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshRondestvedt.TriviaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trivia.app/Trivia";
+			};
+			name = Debug;
+		};
+		57870D302696998200F624D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C66Y3DM74C;
+				INFOPLIST_FILE = TriviaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoshRondestvedt.TriviaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trivia.app/Trivia";
+			};
+			name = Release;
+		};
 		578B190726921422005861C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -453,6 +583,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		57870D2E2696998200F624D2 /* Build configuration list for PBXNativeTarget "TriviaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				57870D2F2696998200F624D2 /* Debug */,
+				57870D302696998200F624D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		578B18F026921421005861C1 /* Build configuration list for PBXProject "Trivia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
