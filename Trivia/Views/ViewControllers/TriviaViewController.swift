@@ -10,18 +10,15 @@ import UIKit
 
 final class TriviaViewController: UIViewController {
     
-    private let viewModel: TriviaViewModel
-    
+    /// A collection of Combine's tokens.
     private var cancellables: Set<AnyCancellable> = []
     
-    // MARK: UI Components
+    /// A `TriviaViewModel` for this view.
+    private let viewModel: TriviaViewModel
     
-    private let layout: UICollectionViewFlowLayout = {
-        let flow = UICollectionViewFlowLayout()
-        flow.scrollDirection = .vertical
-        return flow
-    }()
+    // MARK: UICollectionView
     
+    /// A `UICollectionView` for this view.  Holds the questions for the retrieve question.
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .clear
@@ -29,6 +26,16 @@ final class TriviaViewController: UIViewController {
         return cv
     }()
     
+    /// A `UICollectionViewFlowLayout` for this view's `UICollectionView`.
+    private let layout: UICollectionViewFlowLayout = {
+        let flow = UICollectionViewFlowLayout()
+        flow.scrollDirection = .vertical
+        return flow
+    }()
+    
+    // MARK: UI Components
+
+    /// A `UIButton` that presents a `ProfileViewController` when tapped.
     let profileButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "person")
@@ -40,6 +47,7 @@ final class TriviaViewController: UIViewController {
         return button
     }()
     
+    /// A `UILabel` show the retrieved question.
     let questionLabel: UILabel = {
         let label = UILabel()
         label.text = "Who is the CEO of Apple?"
@@ -51,6 +59,7 @@ final class TriviaViewController: UIViewController {
         return label
     }()
     
+    /// A `UILabel` showing the user's current score.
     let scoreLabel: UILabel = {
         let label = UILabel()
         label.text = "+200"
@@ -60,6 +69,7 @@ final class TriviaViewController: UIViewController {
         return label
     }()
     
+    /// A `UIStackView` holding the question and possible answers.
     let stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
@@ -70,6 +80,8 @@ final class TriviaViewController: UIViewController {
     
     // MARK: Initialization
     
+    /// The initializer for a `TriviaViewController`.
+    /// - Parameter viewModel: The view model for this view controller.
     init(viewModel: TriviaViewModel = TriviaViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -79,7 +91,7 @@ final class TriviaViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: View Cycle Methods
+    // MARK: View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,11 +132,7 @@ final class TriviaViewController: UIViewController {
     
     // MARK: Methods
     
-    @objc func profileButtonTapped() {
-        let viewController = ProfileViewController()
-        present(viewController, animated: true)
-    }
-    
+    /// A method that binds this view's properties to the view model generated values.
     private func bindViewModelValues() {
         viewModel.$triviaItem.sink { [weak self] triviaItem in
             self?.questionLabel.text = triviaItem?.question ?? ""
@@ -135,10 +143,15 @@ final class TriviaViewController: UIViewController {
             self?.scoreLabel.text = String(points ?? 0)
         }.store(in: &cancellables)
     }
-
+    
+    /// The selector method called when the user taps the profile button in the top left corner of the view.
+    @objc func profileButtonTapped() {
+        let viewController = ProfileViewController()
+        present(viewController, animated: true)
+    }
 }
 
-// MARK: Live Preview
+// MARK: UICollectionViewDelegate and UICollectionViewDataSource conformance
 
 extension TriviaViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -171,11 +184,15 @@ extension TriviaViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
+// MARK: UICollectionViewDelegateFlowLayout conformance
+
 extension TriviaViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width, height: 50)
     }
 }
+
+// MARK: SwiftUI like preview for UIKit
 
 import SwiftUI
 

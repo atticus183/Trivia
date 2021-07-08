@@ -13,12 +13,12 @@ class TriviaAnswerCell: UICollectionViewCell {
         didSet { answerLabel.text = answer }
     }
     
-    var question: TriviaItem?
-    
     static var identifier: String {
         String(describing: Self.self)
     }
     
+    var question: TriviaItem?
+
     // MARK: UI Components
     
     let answerLabel: UILabel = {
@@ -76,6 +76,7 @@ class TriviaAnswerCell: UICollectionViewCell {
         contentView.layer.borderColor = UIColor.white.cgColor
     }
     
+    /// Either indicates to the user that they answered the question correctly or incorrectly.
     func updateSelectedAnswer() {
         let isCorrectAnswer = question?.correctAnswer == answer
         let image = isCorrectAnswer ? UIImage(systemName: "checkmark.circle") : UIImage(systemName: "multiply.circle")
@@ -86,6 +87,7 @@ class TriviaAnswerCell: UICollectionViewCell {
         contentView.layer.borderColor = color.cgColor
     }
     
+    /// Updates the cell with the correct answer.
     func updateCellWithCorrectAnswer() {
         resultImageView.image = UIImage(systemName: "checkmark.circle")
         resultImageView.tintColor = .systemGreen

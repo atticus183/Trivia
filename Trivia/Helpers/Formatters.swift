@@ -8,6 +8,7 @@
 import Foundation
 
 struct Formatters {
+    /// A `NumberFormatter` that provides formatting in the following formats: "1%" or "1.1%".
     static var percentage: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
