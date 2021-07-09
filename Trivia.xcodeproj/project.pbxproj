@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57022D9B2697EE2700455482 /* AnimatedCountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57022D9A2697EE2700455482 /* AnimatedCountingLabel.swift */; };
 		574E088B2693F810000A4BD0 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 574E088A2693F810000A4BD0 /* Realm */; };
 		574E088D2693F810000A4BD0 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 574E088C2693F810000A4BD0 /* RealmSwift */; };
 		574E088F2693F88A000A4BD0 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574E088E2693F88A000A4BD0 /* RealmService.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57022D9A2697EE2700455482 /* AnimatedCountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedCountingLabel.swift; sourceTree = "<group>"; };
 		574E088E2693F88A000A4BD0 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		574E08922693FB2B000A4BD0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		574E08952693FC91000A4BD0 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57022D992697EE1A00455482 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				57022D9A2697EE2700455482 /* AnimatedCountingLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		574E08902693FB14000A4BD0 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		578B191126923DE1005861C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57022D992697EE1A00455482 /* Labels */,
 				578B191426923E06005861C1 /* Cells */,
 				578B191326923E00005861C1 /* ViewControllers */,
 			);
@@ -358,6 +369,7 @@
 				575B9DEF2692885D00684224 /* TriviaService.swift in Sources */,
 				578B18FD26921421005861C1 /* TriviaViewController.swift in Sources */,
 				574E08932693FB2B000A4BD0 /* User.swift in Sources */,
+				57022D9B2697EE2700455482 /* AnimatedCountingLabel.swift in Sources */,
 				575B9DF726928C5700684224 /* TriviaViewModel.swift in Sources */,
 				578B18F926921421005861C1 /* AppDelegate.swift in Sources */,
 				578B18FB26921421005861C1 /* SceneDelegate.swift in Sources */,

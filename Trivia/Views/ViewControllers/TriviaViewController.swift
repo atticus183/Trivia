@@ -59,10 +59,11 @@ final class TriviaViewController: UIViewController {
         return label
     }()
     
-    /// A `UILabel` showing the user's current score.
-    let scoreLabel: UILabel = {
-        let label = UILabel()
-        label.text = "+200"
+    /// A `AnimatedCountingLabel` showing the user's current score.
+    /// This label has start and end value properties to set in order to animate the delta.
+    /// Use the `updateLabel`method to change the values after initialization.
+    let scoreLabel: AnimatedCountingLabel = {
+        let label = AnimatedCountingLabel()
         label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -140,7 +141,8 @@ final class TriviaViewController: UIViewController {
         }.store(in: &cancellables)
         
         viewModel.$totalPointsEarned.sink { [weak self] points in
-            self?.scoreLabel.text = String(points ?? 0)
+            let currentValue = self?.scoreLabel.currentValue ?? 0
+            self?.scoreLabel.updateLabel(from: currentValue, to: points ?? 0)
         }.store(in: &cancellables)
     }
     
