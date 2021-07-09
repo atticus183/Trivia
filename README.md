@@ -13,6 +13,7 @@ A trivia game app built with MVVM leveraging Alamofire, SwiftyJSON, Combine, Uni
 - Utilizes Realm's `NotificationToken`s to response to updated objects
 - Uses SwiftyJSON to parse out the returned JSON from the opentdb API
 - Appropiately places realm writes in a do catch block
+- `AnimatedCountingLabel`, a subclass of `UILabel`, uses `CADisplayLink` to animate the change in value after answering a question
 
 ## Dependencies
 - Realm
