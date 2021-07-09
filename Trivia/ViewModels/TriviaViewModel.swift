@@ -50,9 +50,8 @@ class TriviaViewModel: ObservableObject {
     func fetchNewQuestion() {
         triviaService.getRandomQuestion { [weak self] result in
             switch result {
-            case .success(let json):
-                print("\(json)")
-                self?.triviaItem = self?.parseTrivia(json: json)
+            case .success(let triviaItem):
+                self?.triviaItem = triviaItem
             case .failure(let error):
                 print("Error from view model: \(error)")
             }
@@ -61,19 +60,7 @@ class TriviaViewModel: ObservableObject {
     
     //MARK : Methods
     
-    func parseTrivia(json: JSON) -> TriviaItem? {
-        guard let results = json["results"].array?.first else { return nil }
-        let difficulty = results["difficulty"].stringValue
-        let question = String(htmlEncodedString: results["question"].stringValue) ?? ""
-        let correctAnswer = results["correct_answer"].stringValue
-        let incorrectAnswers = results["incorrect_answers"].arrayValue.map { $0.stringValue }
-        var retrievedQuestion = TriviaItem(difficulty: TriviaItem.Difficulty(rawValue: difficulty)!,
-                                           question: question,
-                                           correctAnswer: correctAnswer,
-                                           incorrectAnswers: incorrectAnswers)
-        retrievedQuestion.combineAllAnswers()
-        return retrievedQuestion
-    }
+
     
     func selected(answer: String) {
         guard let realm = realm, let triviaItem = triviaItem else { return }

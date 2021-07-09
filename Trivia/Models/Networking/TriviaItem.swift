@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TriviaItem {
+struct TriviaItem: Equatable {
     let difficulty: Difficulty
     let question: String
     let correctAnswer: String

@@ -1,0 +1,17 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Entertainment: Cartoon & Animations",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In The Simpsons, which war did Seymour Skinner serve in the USA Army as a Green Beret?",
+      "correct_answer": "Vietnam War",
+      "incorrect_answers": [
+        "World War 2",
+        "World War 1",
+        "Cold War"
+      ]
+    }
+  ]
+}
